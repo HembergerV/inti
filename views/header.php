@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="../public/plugins/datatables/dataTables.bootstrap4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Bootstrap 4.3.1 -->
+  <link rel="stylesheet" href="../public/plugins/bootstrap/css/bootstrap.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
