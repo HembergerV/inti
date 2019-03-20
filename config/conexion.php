@@ -1,5 +1,6 @@
 <?php
 
+	session_start();
 
 	class Conectar {
 
@@ -22,7 +23,7 @@
 
 
 		public function ruta(){
-			return "http://localhost/proyecto/";
+			return "http://localhost/LTE/";
 		}
 	}//cierre de llave conectar 		
 		  	

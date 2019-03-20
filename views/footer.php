@@ -25,6 +25,8 @@
   <script src="../public/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Font-Awesome -->
+  <script src="../public/plugins/font-awesome/js/All.js"></script>
   <!-- DataTables -->
   <script src="../public/plugins/datatables/jquery.dataTables.js"></script>
   <script src="../public/plugins/datatables/dataTables.bootstrap4.js"></script>

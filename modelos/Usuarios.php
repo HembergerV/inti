@@ -2,10 +2,50 @@
 
   //conexion a la base de datos
 
-   require_once("../config/conexion.php");
+  require_once("../config/conexion.php");
 
 
     class Usuarios extends Conectar {
+
+      public function login(){
+        $conectar=parent::conexion();
+        parent::set_names();
+        if(isset($_POST["enviar"])){
+          //INICIO DE VALIDACIONES
+          $password = $_POST["password"];
+          $correo = $_POST["correo"];
+          $estado = "1";
+          if(empty($correo) and empty($password)){
+            header("Location:".Conectar::ruta()."views/index.php?m=2");
+            exit();
+          // } else if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){12,15}$/", $password)) {
+          //   header("Location:".Conectar::ruta()."views/index.php?m=1");
+          //   exit();
+          } else {
+            $sql= "select * from usuarios where correo=? and password=? and estado=?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $correo);
+            $sql->bindValue(2, $password);
+            $sql->bindValue(3, $estado);
+            $sql->execute();
+            $resultado = $sql->fetch();
+            //si existe el registro entonces se conecta en session
+            if(is_array($resultado) and count($resultado)>0){
+              /*IMPORTANTE: la session guarda los valores de los campos de la tabla de la bd*/
+              $_SESSION["id_usuario"] = $resultado["id_usuario"];
+              $_SESSION["correo"] = $resultado["correo"];
+              $_SESSION["cedula"] = $resultado["cedula"];
+              $_SESSION["nombre"] = $resultado["nombres"];
+              header("Location:".Conectar::ruta()."views/home.php");
+              exit();
+            } else {                          
+              //si no existe el registro entonces le aparece un mensaje
+              header("Location:".Conectar::ruta()."views/index.php?m=1");
+              exit();
+            } 
+          }//cierre del else
+        }//condicion enviar
+      }
 
       //listar los usuarios
    	  public function get_usuarios(){

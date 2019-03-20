@@ -1,14 +1,9 @@
 <?php
 
   //llamar a la conexion de la base de datos
-
   require_once("../config/conexion.php");
-
-
   //llamar a el modelo Usuarios 
-
   require_once("../modelos/Usuarios.php");
-
 
   $usuarios = new Usuarios();
 
@@ -151,19 +146,19 @@
         $est = '';
         $atrib = "btn btn-success btn-md estado";
         if($row["estado"] == 0){
-          $est = 'INACTIVO';
+          $est = 'Inactivo';
           $atrib = "btn btn-warning btn-md estado";
         } else{
           if($row["estado"] == 1){
-            $est = 'ACTIVO';
+            $est = 'Activo';
           } 
         }
         //cargo
         if($row["cargo"]==1){
-          $cargo="ADMINISTRADOR";
+          $cargo="Administrador";
         } else{
           if($row["cargo"]==0){ 
-            $cargo="EMPLEADO";
+            $cargo="Empleado";
           }
         }
 
@@ -175,13 +170,13 @@
         $sub_array[] = $row["telefono"];
         $sub_array[] = $row["correo"];
         $sub_array[] = $row["direccion"];
-        $sub_array[] = date("d-m-Y",strtotime($row["fecha_ingreso"]));
+        // $sub_array[] = date("d-m-Y",strtotime($row["fecha_ingreso"]));
    
-        $sub_array[] = '<button type="button" onClick="cambiarEstado('.$row["id_usuario"].','.$row["estado"].');" name="estado" id="'.$row["id_usuario"].'" class="'.$atrib.'">'.$est.'</button>';
+        $sub_array[] = '<button type="button" onClick="cambiarEstado('.$row["id_usuario"].','.$row["estado"].');" name="estado" id="'.$row["id_usuario"].'" class="btn-sm '.$atrib.'">'.$est.'</button>';
 
-        $sub_array[] = '<button type="button" onClick="mostrar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-warning btn-md update"><i class="glyphicon glyphicon-edit"></i> Editar</button>';
+        $sub_array[] = '<button type="button" onClick="mostrar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-warning btn-sm update">.  <i class="fas fa-user-edit"></i> .</button>';
 
-        $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-danger btn-md"><i class="glyphicon glyphicon-edit"></i> Eliminar</button>';
+        $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-danger btn-sm">. <i class="fas fa-user-times"></i> .</button>';
         
         $data[]=$sub_array;    
       }
@@ -237,6 +232,4 @@
 
       break;
   }
-
-
 ?>

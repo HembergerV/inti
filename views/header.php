@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" href="../public/dist/img/logointi.png">
 
   <title>Inti | Instituto Nacional de Tierra</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="../public/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../public/plugins/font-awesome/css/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
   <!-- DataTables -->
@@ -80,7 +81,8 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-dashboard"></i>
+                <!-- <i class="nav-icon fa fa-dashboard"></i> -->
+                <i class="nav-icon fas fa-code-branch"></i>
                 <p>
                   Maestros
                   <i class="right fa fa-angle-left"></i>
@@ -224,9 +226,14 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class=" fa fa-exit"></i>
-                <i class="nav-icon fa fa-sign-out"></i>
+              <a href="usuarios.php" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Usuarios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="logout.php" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Cerrar Sesión
                 </p>
