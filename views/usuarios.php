@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Listado de Usuarios</h1>
+              <h1>Lista Usuario</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,7 @@
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Usuario</button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"> Agregar </button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
@@ -53,7 +53,7 @@
                         <th>Correo</th>
                         <th>Dirección</th>
                         <!-- <th>Fecha Ingreso</th> -->
-                        <th>Estado</th>
+                        <th>Estatus</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
                       </tr>
@@ -116,7 +116,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label>Estado</label>
+                  <label>Estatus</label>
                   <select class="form-control" id="estado" name="estado" required>
                     <option value="">-- Selecciona estado --</option>
                     <option value="1" selected>Activo</option>

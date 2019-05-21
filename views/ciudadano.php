@@ -14,13 +14,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Listado de Usuarios</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item">Inicio</li>
-                <li class="breadcrumb-item active">Usuarios</li>
-              </ol>
+              <h1>Registro Ciudadanos</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -34,7 +28,7 @@
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Ciudadano</button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"> Agregar </button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
@@ -77,7 +71,7 @@
         <form method="post" id="ciudadano_form">
           <div class="modal-content card-success card-outline">
             <div class="modal-header">
-              <h4 class="modal-title">Agregar Ciudadano</h4>
+              <h4 class="modal-title">Buscar Ciudadano</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">

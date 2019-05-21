@@ -121,7 +121,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button type="button" onClick="registrarCompra()" class="btn btn-success pull-right" id="btn"><i class="fas fa-save" aria-hidden="true"></i>  Registrar Visita</button>
+                  <button type="button" onClick="registrarCompra()" class="btn btn-success float-sm-right" id="btn"><i class="fas fa-save" aria-hidden="true"></i>  Guardar Visita</button>
                 </div>
               </div>
             </div>
@@ -139,6 +139,11 @@
           <div class="row">
             <div class="col-md-12">
               <div class="card card-success card-outline p-2">
+                <div class="card-header with-border">
+                  <h3 class="box-title">Lista de visitas</h3>
+                  <div class="box-tools pull-right">
+                  </div>
+                </div>
                 <div class="card-body table-responsive">
                   <table id="ciudadano_data" class="table table-sm table-bordered table-striped">
                     <thead>                              
@@ -168,7 +173,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Agregar Ciudadano</h4>
+            <h4 class="modal-title">Buscar Ciudadano</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">

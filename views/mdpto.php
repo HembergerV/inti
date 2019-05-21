@@ -18,7 +18,7 @@
 	      <div class="container-fluid">
 	        <div class="row mb-2">
 	          <div class="col-sm-6">
-	            <h1>Sector</h1>
+	            <h1>Nacionalidad</h1>
 	          </div>
 	        </div>
 	      </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
 	          <div class="col-md-8 offset-md-2">
 	            <div class="card card-success card-outline">
 	              <div class="card-header">
-	                <h3 class="card-title">Sector</h3>
+	                <h3 class="card-title">Nacionalidad</h3>
 	                <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></h1>
 	              </div>
 	              <!-- /.card-header -->
@@ -41,6 +41,7 @@
                       <tr>                           
                         <th>#</th>
                         <th>Nombre</th>
+                        <th>Abreviatura</th>
                         <th>Estatus</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
@@ -70,24 +71,20 @@
           <form method="post" id="">
         <div class="modal-content card-success card-outline">
           <div class="modal-header">
-            <h4 class="modal-title">Agregar Sector</h4>
+            <h4 class="modal-title">Agregar Nacionalidad</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
           	<div class="form-row">
               <div class="col-md-10 offset-md-1 mb-3">
-                <label>Municipio</label>
-                <select class="form-control" id="estatus" name="estatus" required>
-                  <option value="" selected>-- Selecciona --</option>
-                  <option value="1" >...</option>
-                  
-                </select>    
+                <label>Nacionalidad</label>
+                <input type="text" name="" id="" class="form-control" placeholder="Ej: Venezolano" required />
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-10 offset-md-1 mb-3">
-                <label>Sector</label>
-                <input type="text" name="" id="" class="form-control" placeholder="Ej: Los Cortijos" required />
+                <label>Abreviatura</label>
+                <input type="text" name="" id="" class="form-control" placeholder="Ej: Ven." required />
               </div>
             </div>
             <div class="form-row">

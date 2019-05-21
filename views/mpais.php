@@ -18,13 +18,7 @@
 	      <div class="container-fluid">
 	        <div class="row mb-2">
 	          <div class="col-sm-6">
-	            <h1>Maestro Pais</h1>
-	          </div>
-	          <div class="col-sm-6">
-	            <ol class="breadcrumb float-sm-right">
-	              <li class="breadcrumb-item">Maestro</li>
-	              <li class="breadcrumb-item active">País</li>
-	            </ol>
+	            <h1>País</h1>
 	          </div>
 	        </div>
 	      </div><!-- /.container-fluid -->
@@ -37,7 +31,7 @@
 	            <div class="card card-success card-outline">
 	              <div class="card-header">
 	                <h3 class="card-title">País</h3>
-	                <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></h1>
+	                <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></h1>
 	              </div>
 	              <!-- /.card-header -->
 	              <div class="card-body">
@@ -47,6 +41,7 @@
                       <tr>                           
                         <th>#</th>
                         <th>Nombre</th>
+                        <th>Estatus</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
                       </tr>
@@ -68,50 +63,44 @@
 	      </div>
 	    </section>
 	</div>
-    <!-- Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  		<div class="modal-dialog modal-dialog-centered" role="document">
-        <form method="post" id="pais_form>
-      		<div class="modal-content card-success card-outline">
-      			<div class="modal-header">
-        			<h5 class="modal-title" id="exampleModalCenterTitle">Agregar País</h5>
-        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true">&times;</span>
-        			</button>
-      			</div>
-      			<div class="modal-body">
-    					<div class="form-row">
-      					<div class="col-md-12 mb-3">
-      						<label>Nombre Del País</label>
-      						<input type="text" class="form-control" placeholder="Ingrese el nombre del País" required>
-      					</div>
-    					</div>
-              <div class="form-row">
-      					<div class="col-md-12 mb-3">
-      						<label for="sexo">Estado</label><br>
-        					<div class="form-check form-check-inline">
-            					<input class="form-check-input" type="radio" name="sexo" id="m" value="masculino">
-            					<label class="form-check-label" for="m">Activo</label>
-        					</div>
-        					<div class="form-check form-check-inline">
-            					<input class="form-check-input" type="radio" name="sexo" id="f" value="femenino">
-            					<label class="form-check-label" for="f">Inactivo</label>
-        					</div>
-      					</div>
+
+  <div id="ciudadanoModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form method="post" id="">
+        <div class="modal-content card-success card-outline">
+          <div class="modal-header">
+            <h4 class="modal-title">Agregar País</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="col-md-10 offset-md-1 mb-3">
+                <label>País</label>
+                <input type="text" name="" id="" class="form-control" placeholder="Ej: Venezuela" required />
               </div>
-          	</div>
-            <div class="modal-footer">
-              <input type="hidden" name="codpais" id="codpais"/>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button class="btn btn-success btn-block" id="enviar" type="submit">Guardar</button>
-              <button type="button" onclick="limpiar()" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fa fa-times" aria-hidden="true"></i></button>
             </div>
-      		</div>
-        </form>
-  		</div>
-	</div>
-    <!-- /.content-wrapper -->
-    <!--___________________________CONTENIDO______________________________-->
+            <div class="form-row">
+              <div class="col-md-10 offset-md-1 mb-3">
+                <label>Estatus</label>
+                <select class="form-control" id="estatus" name="estatus" required>
+                  <option value="" selected>-- Selecciona --</option>
+                  <option value="1" >Activo</option>
+                  <option value="0">Inactivo</option>
+                </select>    
+              </div>
+            </div>                   
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="idciudadano" id="idciudadano"/>
+            <button type="submit" name="action" id="btnGuardar" class="btn btn-success pull-left" value="Add">Guardar <i class="fas fa-user-check"></i></button>         
+            <button type="button" onclick="limpiar()" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fa fa-times" aria-hidden="true"></i></button>  
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--___________________________CONTENIDO______________________________-->
 
 <script type="text/javascript" src="js/usuarios.js"></script>
 

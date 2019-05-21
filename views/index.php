@@ -59,7 +59,7 @@
 		</div>
 		<!----------------------------------------------- Menu -------------------------------------------------->
 
-		<div class="navegador">
+<!-- 		<div class="navegador">
 			<ul class="menu-main">
 				<li class="botones"><a class="botones" href="#"	onClick="muestra0()" ><i class="fas fa-home"></i>Inicio</a></li>
 				<li class="botones"><a class="botones" href="#"	onClick="muestra1()" ><i class="fas fa-align-justify"></i>Misón</a></li>
@@ -69,7 +69,7 @@
 				<li class="botones"><a class="botones" href="#"	onClick="muestra5()" ><i class="fas fa-handshake"></i>Propósito</a></li>
 				<li class="botones"><a class="botones" href="#"	onClick="muestra6()" ><i class="fas fa-balance-scale"></i>Legal</a></li>
 			</ul>
-		</div>
+		</div> -->
 	<!--  -->
 <!---------------------------------------------- Login -------------------------------------------------->
 
@@ -133,7 +133,7 @@
 	</div>
 	<!--------------------------------------------- Mision --------------------------------------------------->
 
-		<div class="contenido" id="mision">
+		<!-- <div class="contenido" id="mision">
 			<h1><i class="fas fa-align-justify"></i>Misión  inTi</h1>
 				<ul>
 					<li>Administrar y regular la posesión de las tierras de vocación agraria.</li>
@@ -142,28 +142,28 @@
 					<li>Garantizar a toda la familia campesina que lo requiera, un lote de tierras suficiente para trabajar.</li>
 					<li>Promover las Comunas.</li>
 				</ul>		
-		</div>
+		</div> -->
 <!------------------------------------------------ Vision ------------------------------------------------->
 
-		<div class="contenido" id="vision">
+		<!-- <div class="contenido" id="vision">
 			<h1><i class="fas fa-eye"></i>Visión inTi</h1>
 				<br>
 				<p>Garantizar a todas las familias campesinas tierras suficientes para progresar con dignidad, en el marco de un esquema de producción socialista que asegure la paz social en el campo e impulse la conquista de la Seguridad y Soberanía alimentaria.</p>
-		</div>
+		</div> -->
 <!----------------------------------------------- Objetivos ----------------------------------------------->
 
-		<div class="contenido" id="objetivos">
+		<!-- <div class="contenido" id="objetivos">
 			<h1><i class="fas fa-bullseye"></i>Objetivos Estrategicos</h1>
 				<p> 	El área de Atención al Campesino se encarga de recibir las solicitudes de todos los procedimientos administrativos que se realizan en la Institución   (Regularización de Tierras, Revocatorias de los Instrumentos Agrarios que otorga la Institución, Desistimientos de solicitudes a nivel de sistema, Denuncias de Tierra Ociosas, Certificación de Fincas Productivas y Mejorables, remisión a las diferentes áreas que conforman esta Institución,  de acuerdo al estatus en el cual se encuentre el procedimiento administrativo iniciado, planificación de operativos de regularización de tierras a las comunidades o productores que se les dificulte el acceso a la Oficina Regional de Tierras (ORT), entrega de Títulos de adjudicación y Carta de Registro, Planificación de Operativos para la entrega de Títulos de Adjudicación de Tierras, Estudios Socio- económicos para los aspirantes a la adjudicación de lotes de terrenos rescatados, Atención de casos emblemáticos por parte del jefe de área) 
 				</p>
-		</div>
+		</div> -->
 <!----------------------------------------------- Organigrama --------------------------------------------->
 
-		<div class="organigrama1" id="organigrama">
+		<!-- <div class="organigrama1" id="organigrama">
 			<div><img src="img/organigrama.png" width="780" height="1000" r></div>
-		</div>
+		</div> -->
 <!------------------------------------------------ Propsito ----------------------------------------------->
-
+<!-- 
 		<div class="contenido" id="proposito">
 			<h1><i class="fas fa-handshake"></i>Intencionalidad o Propósito</h1>
 			<ul>
@@ -174,10 +174,10 @@
 				<li>Clasificar las fincas, de acuerdo a su grado de aprovechamiento, en Productiva, Mejorable u Ociosa.</li>
 				<li>Llevar el registro agrario de tierras y aguas.</li>
 			</ul>
-		</div>
+		</div> -->
 <!------------------------------------------------ Legal -------------------------------------------------->
 
-		<div class="contenido" id="legal">
+		<!-- <div class="contenido" id="legal">
 
 			<h1><i class="fas fa-balance-scale"></i>Fundamentacion Legal</h1>
 			<p>	El INTI es un ente autónomo adscrito al Ministerio del Poder Popular para la Agricultura y Tierras (MAT), cuya tarea primordial es contribuir con el desarrollo rural y agrario a través de una planificación estratégica, democrática y participativa sobre la tenencia de la tierra. Así lo establece el Decreto con Rango, Valor y Fuerza de Ley de Tierras y Desarrollo Agrario promulgado por el líder de la Revolución, Hugo Chávez Frías, el 10 de diciembre de 2001, y convertido en Ley de la República mediante modificaciones parciales en 2005 y 2010.</p><br>
@@ -198,7 +198,7 @@
 				<li><a class="link">Ley de Demarcación y Garantía del Hábitat y Tierras de los Pueblos Indígenas</a></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- bootstrap 4.3.1 -->
 	<script src="../public/plugins/bootstrap/js/bootstrap.min.js"></script>

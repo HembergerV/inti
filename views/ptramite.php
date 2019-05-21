@@ -91,7 +91,7 @@
                         <form method="post" id="ciudadano_form">
                           <div class="modal-content card-success card-outline">
                             <div class="modal-header">
-                              <h4 class="modal-title">Agregar Ciudadano</h4>
+                              <h4 class="modal-title">Buscar Ciudadano</h4>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
@@ -123,10 +123,11 @@
                       </div>
                     </div>
                   </div>
+                  <div class="card-footer">
+                    <button type="button" onClick="registrarCompra()" class="btn btn-success float-sm-right" id="btn"><i class="fas fa-save" aria-hidden="true"></i>  Guardar Tramite</button>
+                  </div>
                 </div>
-                <div class="card-footer">
-                  <button type="button" onClick="registrarCompra()" class="btn btn-success pull-right" id="btn"><i class="fas fa-save" aria-hidden="true"></i>  Registrar Tramite</button>
-                </div>
+                
               </div>
             </div>
         </div>
@@ -140,7 +141,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Agregar Ciudadano</h4>
+            <h4 class="modal-title">Buscar Ciudadano</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">

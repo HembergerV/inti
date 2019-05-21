@@ -89,6 +89,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <a href="ciudadano.php" class="nav-link">
+                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
+                    <i class="fa fa-clipboard"></i>
+                    <p>Ciudadano</p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="pvisita.php" class="nav-link">
                     <!-- <i class="fa fa-circle-o nav-icon"></i> -->
                     <i class="fa fa-calendar"></i>
@@ -141,22 +148,9 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="ciudadano.php" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>Ciudadanos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a href="usuarios.php" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>Usuarios</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-calendar"></i>
-                    <p>Cita</p>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -209,14 +203,14 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="mnacionalidad.php" class="nav-link">
                     <!-- <i class="fa fa-circle-o nav-icon"></i> -->
                     <i class="fa fa-flag"></i>
                     <p>Nacionalidad</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="mdpto.php" class="nav-link">
                     <!-- <i class="fa fa-circle-o nav-icon"></i> -->
                     <i class="fa fa-building"></i>
                     <p>Departamento</p>

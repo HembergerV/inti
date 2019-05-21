@@ -43,7 +43,7 @@
   margin-top: 20px;
   border-radius: 3px;
   background: #ce1818;
-  font-family: FuenteSegundaria, "Lobster Two", cursive;
+  font-family: "Open Sans", sans-serif;
   word-spacing: 2px;
   letter-spacing: 2px;
   font-size: 15px;
@@ -185,7 +185,7 @@ input[type="password"]:focus {
     border-bottom: 2px solid #000;
     box-shadow: 0px 2px 5px #000; }
   .contenido li {
-    font-family: FuenteSegundaria, "Lobster Two", cursive;
+    font-family: "Open Sans", sans-serif;
     letter-spacing: 1px;
     font-weight: normal;
     text-align: justify-all;
@@ -198,7 +198,7 @@ input[type="password"]:focus {
     background-repeat: no-repeat;
     padding-left: 35px; }
   .contenido p {
-    font-family: FuenteSegundaria, "Lobster Two", cursive;
+    font-family: "Open Sans", sans-serif;
     color: #000000;
     font-size: 25px;
     letter-spacing: 1.5px;
@@ -238,12 +238,12 @@ a[href$='.pdf'] {
       margin: 5px;
       font-size: 35px; }
     .contenido li {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 25px;
       margin: 12px;
       padding: 5px; }
     .contenido p {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 25px;
       text-align: initial;
       margin: 15px;
@@ -260,12 +260,12 @@ a[href$='.pdf'] {
       margin: 5px;
       font-size: 35px; }
     .contenido li {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 20px;
       margin: 8px;
       padding: 0px; }
     .contenido p {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 20px;
       text-align: initial;
       margin: 15px;
@@ -289,12 +289,12 @@ a[href$='.pdf'] {
       margin: 5px;
       font-size: 30px; }
     .contenido li {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 25px;
       margin: 8px;
       padding: 0px; }
     .contenido p {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 20px;
       text-align: initial;
       margin: 0px;
@@ -319,12 +319,12 @@ a[href$='.pdf'] {
       margin: 5px;
       font-size: 25px; }
     .contenido li {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 15px;
       margin: 8px;
       padding: 0px; }
     .contenido p {
-      font-family: FuenteSegundaria, "Lobster Two", cursive;
+      font-family: "Open Sans", sans-serif;
       font-size: 15px;
       text-align: initial;
       margin: 0px;
