@@ -18,7 +18,7 @@
 	      <div class="container-fluid">
 	        <div class="row mb-2">
 	          <div class="col-sm-6">
-	            <h1>Nacionalidad</h1>
+	            <h1>Departamento</h1>
 	          </div>
 	        </div>
 	      </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
 	          <div class="col-md-8 offset-md-2">
 	            <div class="card card-success card-outline">
 	              <div class="card-header">
-	                <h3 class="card-title">Nacionalidad</h3>
+	                <h3 class="card-title">Departamento</h3>
 	                <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button></h1>
 	              </div>
 	              <!-- /.card-header -->
@@ -40,8 +40,8 @@
                     <thead>                              
                       <tr>                           
                         <th>#</th>
+                        <th>Cod Dpto</th>
                         <th>Nombre</th>
-                        <th>Abreviatura</th>
                         <th>Estatus</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
@@ -71,20 +71,20 @@
           <form method="post" id="">
         <div class="modal-content card-success card-outline">
           <div class="modal-header">
-            <h4 class="modal-title">Agregar Nacionalidad</h4>
+            <h4 class="modal-title">Agregar Departamento</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
           	<div class="form-row">
               <div class="col-md-10 offset-md-1 mb-3">
-                <label>Nacionalidad</label>
+                <label>Codigo Departamento</label>
                 <input type="text" name="" id="" class="form-control" placeholder="Ej: Venezolano" required />
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-10 offset-md-1 mb-3">
-                <label>Abreviatura</label>
-                <input type="text" name="" id="" class="form-control" placeholder="Ej: Ven." required />
+                <label>Nombre</label>
+                <input type="text" name="" id="" class="form-control" placeholder="" required />
               </div>
             </div>
             <div class="form-row">
