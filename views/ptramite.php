@@ -15,7 +15,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Solicitud Tramite</h1>
+              <h1>Registro Tramite</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -28,25 +28,25 @@
       </section>
       <!-- Main content -->
       <section class="content">
-        <div id="resultados_ajax2"></div>
+        <div id="esultados_ajax2"></div>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-md-8 offset-md-2">
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Seleccionar Ciudadano</button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal1"><i class="fas fa-search"></i>Seleccionar Ciudadano</button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="card-body">
+                <div class="card-body table-responsive">
                   <div class="row">
-                    <div class="col-md-4 offset-md-1">
+                    <div class="col-md-4">
                       <div class="form-group">
-                        <label>Tramite</label>
+                        <h6>Tramite</h6>
                         <select class="form-control select2" style="width: 100%;">
-                          <option selected="selected">Selecciona Tramite...</option>
+                          <option selected="selected">Selecciona...</option>
                           <option>Registro agrario</option>
                           <option>Recursos Naturales</option>
                           <option>Area Tecnica</option>
@@ -54,26 +54,36 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-4 offset-md-2">
+                    <div class="col-md-4">
                       <div class="form-group">
-                        <label>Departamento</label>
-                        <select class="form-control select2" style="width: 100%;">
-                          <option selected="selected">Selecciona Departanto...</option>
-                          <option>Registro agrario</option>
-                          <option>Recursos Naturales</option>
-                          <option>Area Tecnica</option>
-                          <option>Area Legal</option>
-                        </select>
+                        <h6>Lote de Terreno</h6>
+                        <input class="form-control" type="text" placeholder="...">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h6>Superficie</h6>
+                        <input class="form-control" type="text" placeholder="...">
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-8 offset-md-2">
+                  <div class="row offset-md-2">
+                    <div class="col-md-4">
                       <div class="form-group">
-                        <label>Motivo</label>
-                        <textarea class="form-control" rows="3" placeholder="Motivo cita"></textarea>
+                        <h6>Sector</h6>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Selecciona...</option>
+                          <option>...</option>
+                        </select>
                       </div>
                     </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h6>Situacion</h6>
+                        <input class="form-control" type="text" placeholder="...">
+                      </div>
+                    </div>
+                  </div>
                   </div>
                   <div class="row">
                     <div id="ciudadanoModal" class="modal fade">
@@ -114,14 +124,19 @@
                     </div>
                   </div>
                 </div>
+                <div class="card-footer">
+                  <button type="button" onClick="registrarCompra()" class="btn btn-success pull-right" id="btn"><i class="fas fa-save" aria-hidden="true"></i>  Registrar Tramite</button>
+                </div>
               </div>
             </div>
         </div>
       </section><!-- /.content -->
+
+      <!--  -->
     </div><!-- /.content-wrapper -->
     <!--Fin-Contenido-->
 
-    <div id="ciudadanoModal" class="modal fade">
+    <div id="ciudadanoModal1" class="modal fade">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -129,29 +144,28 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-            <table id="ciudadano_data" class="table table-sm table-bordered table-striped">
-              <tr>                           
-                <th>Cédula</th>
-                <th>Rif</th>
-                <th>Primer Nombre</th>
-                <th>Segundo Nombre</th>
-                <th>Primer Apellido</th>
-                <th>Segundo Apellido</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Estatus</th>
-                <th width="10%">Editar</th>
-                <th width="10%">Borrar</th>
-              </tr>
-            </thead>
-            <tbody>
+            <table id="usuario_data" class="table table-sm table-bordered table-striped">
+              <thead>                              
+                <tr>                           
+                  <th>Cédula</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Teléfono</th>
+                  <th>Correo</th>
+                </tr>
+              </thead>
+              <tbody>
                       
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+              </tbody>
+            </table>
+          </div><!--modal body-->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
+          </div><!--modal-footer-->
+        </div><!-- /.modal-content -->
+      </div> <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
       <!-- /.content-wrapper -->
       <!--___________________________CONTENIDO______________________________-->
 

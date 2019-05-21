@@ -89,10 +89,10 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pcita.php" class="nav-link">
+                  <a href="pvisita.php" class="nav-link">
                     <!-- <i class="fa fa-circle-o nav-icon"></i> -->
                     <i class="fa fa-calendar"></i>
-                    <p>Cita</p>
+                    <p>Visita</p>
                   </a>
                 </li>
                 <li class="nav-item">

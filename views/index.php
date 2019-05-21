@@ -24,7 +24,8 @@
 	<link rel="stylesheet" href="../public/login/css/estilos.css" />
 	<!---------------- Estas Son Las Fuentes ------------------>
 	<link rel="stylesheet" href="../public/login/css/fontawesome-all.css">
-	<link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet"> <!-- font-family: 'Lobster Two', cursive; -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet"> --> <!-- font-family: 'Lobster Two', cursive; -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">  <!-- font-family: 'Oswald', sans-serif; -->
 	<link href="https://fonts.googleapis.com/css?family=Cormorant" rel="stylesheet">  <!-- font-family: 'Cormorant', serif; -->
 	<link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet">   <!-- font-family: 'KoHo', sans-serif; -->
@@ -56,6 +57,21 @@
 		<div class="banner">
 			<img src="../public/login/img/cintillo.jpg"> 
 		</div>
+		<!----------------------------------------------- Menu -------------------------------------------------->
+
+		<div class="navegador">
+			<ul class="menu-main">
+				<li class="botones"><a class="botones" href="#"	onClick="muestra0()" ><i class="fas fa-home"></i>Inicio</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra1()" ><i class="fas fa-align-justify"></i>Misón</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra2()" ><i class="fas fa-eye"></i>Visión</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra3()" ><i class="fas fa-bullseye"></i>Objetivos</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra4()" ><i class="fas fa-sitemap"></i>Organigrama</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra5()" ><i class="fas fa-handshake"></i>Propósito</a></li>
+				<li class="botones"><a class="botones" href="#"	onClick="muestra6()" ><i class="fas fa-balance-scale"></i>Legal</a></li>
+			</ul>
+		</div>
+	<!--  -->
+<!---------------------------------------------- Login -------------------------------------------------->
 
 		<?php
             if(isset($_GET["m"])) {
@@ -113,6 +129,74 @@
 					<!-- <a href="iforget.html"><i class="fas fa-lock">Olvido Contraseña?</i></a><a href="recover.html"><i class="fas fa-unlock">Cambiar Contraseña</i></a> -->
 				</div>
 			</form>
+		</div>
+	</div>
+	<!--------------------------------------------- Mision --------------------------------------------------->
+
+		<div class="contenido" id="mision">
+			<h1><i class="fas fa-align-justify"></i>Misión  inTi</h1>
+				<ul>
+					<li>Administrar y regular la posesión de las tierras de vocación agraria.</li>
+					<li>Liderar la lucha contra el latifundio y contribuir a transformar las tierras bajo su administración en unidades socio–productivas eficientes.</li>
+					<li>Promover y auspiciar la organización socio-productiva del campesinado, orientada al empoderamiento del Poder Popular Campesino.</li>
+					<li>Garantizar a toda la familia campesina que lo requiera, un lote de tierras suficiente para trabajar.</li>
+					<li>Promover las Comunas.</li>
+				</ul>		
+		</div>
+<!------------------------------------------------ Vision ------------------------------------------------->
+
+		<div class="contenido" id="vision">
+			<h1><i class="fas fa-eye"></i>Visión inTi</h1>
+				<br>
+				<p>Garantizar a todas las familias campesinas tierras suficientes para progresar con dignidad, en el marco de un esquema de producción socialista que asegure la paz social en el campo e impulse la conquista de la Seguridad y Soberanía alimentaria.</p>
+		</div>
+<!----------------------------------------------- Objetivos ----------------------------------------------->
+
+		<div class="contenido" id="objetivos">
+			<h1><i class="fas fa-bullseye"></i>Objetivos Estrategicos</h1>
+				<p> 	El área de Atención al Campesino se encarga de recibir las solicitudes de todos los procedimientos administrativos que se realizan en la Institución   (Regularización de Tierras, Revocatorias de los Instrumentos Agrarios que otorga la Institución, Desistimientos de solicitudes a nivel de sistema, Denuncias de Tierra Ociosas, Certificación de Fincas Productivas y Mejorables, remisión a las diferentes áreas que conforman esta Institución,  de acuerdo al estatus en el cual se encuentre el procedimiento administrativo iniciado, planificación de operativos de regularización de tierras a las comunidades o productores que se les dificulte el acceso a la Oficina Regional de Tierras (ORT), entrega de Títulos de adjudicación y Carta de Registro, Planificación de Operativos para la entrega de Títulos de Adjudicación de Tierras, Estudios Socio- económicos para los aspirantes a la adjudicación de lotes de terrenos rescatados, Atención de casos emblemáticos por parte del jefe de área) 
+				</p>
+		</div>
+<!----------------------------------------------- Organigrama --------------------------------------------->
+
+		<div class="organigrama1" id="organigrama">
+			<div><img src="img/organigrama.png" width="780" height="1000" r></div>
+		</div>
+<!------------------------------------------------ Propsito ----------------------------------------------->
+
+		<div class="contenido" id="proposito">
+			<h1><i class="fas fa-handshake"></i>Intencionalidad o Propósito</h1>
+			<ul>
+				<li>Rescatar las tierras propiedad del Instituto que se encuentren ocupadas ilegalmente.</li>
+				<li>Recuperar o rescatar las tierras de vocación agraria que se encuentren ociosas, incultas o infrautilizadas.</li>
+				<li>Declarar o negar la garantía de permanencia.</li>
+				<li>Adjudicar las tierras a las campesinas y campesinos teniendo como sujeto prioritario la madre cabeza de familia y los jóvenes menores de 25 años.</li>
+				<li>Clasificar las fincas, de acuerdo a su grado de aprovechamiento, en Productiva, Mejorable u Ociosa.</li>
+				<li>Llevar el registro agrario de tierras y aguas.</li>
+			</ul>
+		</div>
+<!------------------------------------------------ Legal -------------------------------------------------->
+
+		<div class="contenido" id="legal">
+
+			<h1><i class="fas fa-balance-scale"></i>Fundamentacion Legal</h1>
+			<p>	El INTI es un ente autónomo adscrito al Ministerio del Poder Popular para la Agricultura y Tierras (MAT), cuya tarea primordial es contribuir con el desarrollo rural y agrario a través de una planificación estratégica, democrática y participativa sobre la tenencia de la tierra. Así lo establece el Decreto con Rango, Valor y Fuerza de Ley de Tierras y Desarrollo Agrario promulgado por el líder de la Revolución, Hugo Chávez Frías, el 10 de diciembre de 2001, y convertido en Ley de la República mediante modificaciones parciales en 2005 y 2010.</p><br>
+			<p>Dicha Ley viene a dar operatividad concreta a las disposiciones constitucionales sobre desarrollo social en el medio rural. En este sentido, se prevé la eliminación íntegra del régimen latifundista, como sistema contrario a la justicia, al interés general y a la paz social en el campo.</p><br>
+			<ul>
+				<li><a class="link">Constitución de la República Bolivariana de Venezuela.</a></li>
+				<li><a class="link">Desarrollo Económico y Social de la Nación 2007-2013</a></li>
+				<li><a class="link">Ley de Tierras y Desarrollo Agrario</a></li>
+				<li><a class="link">Ley de Soberanía Agroalimentaria</a></li>
+				<li><a class="link">Ley del Banco Agrícola</a></li>
+				<li><a class="link">Ley Orgánica de Procedimientos Administrativos</a></li>
+				<li><a class="link">Ley de Simplificación de Trámites Administrativos</a></li>
+				<li><a class="link">Ley de Crédito para el sector Agrario</a></li>
+				<li><a class="link">Ley de Salud Agrícola Integral</a></li>
+				<li><a class="link">Ley Orgánica de Ordenación del Territorio</a></li>
+				<li><a class="link">Ley de Tierras Urbanas</a></li>
+				<li><a class="link">Ley de Transporte Ferroviario Nacional</a></li>
+				<li><a class="link">Ley de Demarcación y Garantía del Hábitat y Tierras de los Pueblos Indígenas</a></li>
+			</ul>
 		</div>
 	</div>
 
