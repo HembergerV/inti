@@ -1,37 +1,35 @@
-
 var tabla;
  
  	//Función que se ejecuta al inicio
   	function init(){
 	    listar();
 	    //cuando se da click al boton submit entonces se ejecuta la funcion guardaryeditar(e);
-		$("#usuario_form").on("submit",function(e){
+		$("#ciudadano_form").on("submit",function(e){
 			guardaryeditar(e);	
 		})
 		//cambia el titulo de la ventana modal cuando se da click al boton
 		$("#add_button").click(function(){	
-			$(".modal-title").text("Agregar Usuarios");
+			$(".modal-title").text("Agregar Ciudadano");
 		});
 	}
 	//funcion que limpia los campos del formulario
     function limpiar(){
    		$("#cedula").val("");
-   		$('#nombre').val("");
-		$('#apellido').val("");
-		$('#cargo').val("");
-		$('#usuario').val("");
-		$('#password1').val("");
-		$('#password2').val("");
+   		$('#rif').val("");
+		$('#primernombre').val("");
+		$('#segundonombre').val("");
+		$('#primerapellido').val("");
+		$('#segundoapellido').val("");
+		$('#direccion').val("");
 		$('#telefono').val("");
 		$('#email').val("");
-		$('#direccion').val("");
-		$('#estado').val("");
-		$('#id_usuario').val("");
+		$('#estatus').val("");
+		$('#idciudadano').val("");
    	}
     //function listar 
     function listar(){
 
-    	tabla=$('#usuario_data').dataTable({
+    	tabla=$('#ciudadano_data').dataTable({
 
     	"aProcessing": true,//Activamos el procesamiento del datatables
 	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
@@ -46,7 +44,7 @@ var tabla;
 		"ajax":
 
 		   {
-					url: '../ajax/usuario.php?op=listar',
+					url: '../ajax/ciudadano.php?op=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){
@@ -87,24 +85,24 @@ var tabla;
 			   }//cerrando language
     	}).DataTable();
     }  
-    //Mostrar datos del usuario en la ventana modal del formulario 
-    function mostrar(id_usuario){
-     	$.post("../ajax/usuario.php?op=mostrar",{id_usuario : id_usuario}, function(data, status){ 
+    //Mostrar datos delciudadano en la ventana modal del formulario 
+    function mostrar(idciudadano){
+     	$.post("../ajax/ciudadano.php?op=mostrar",{idciudadano : idciudadano}, function(data, estatus){ 
          	data = JSON.parse(data);
-            $("#usuarioModal").modal("show");
+            $("#ciudadanoModal").modal("show");
             $("#cedula").val(data.cedula);
-            $('#nombre').val(data.nombre);
-			$('#apellido').val(data.apellido);
-			$('#cargo').val(data.cargo);
-			$('#usuario').val(data.usuario);
-			$('#password1').val(data.password1);
-			$('#password2').val(data.password2);
-			$('#telefono').val(data.telefono);
-			$('#email').val(data.correo);
+            $('#rif').val(data.rif);
+			$('#primernombre').val(data.primernombre);
+			$('#segundonombre').val(data.segundonombre);
+			$('#primerapellido').val(data.primerapellido);
+			$('#segundoapellido').val(data.segundoapellido);
 			$('#direccion').val(data.direccion);
-			$('#estado').val(data.estado);
-			$('.modal-title').text("Editar Usuario");
-			$('#id_usuario').val(id_usuario);
+			$('#telefono').val(data.telefono);
+			$('#email').val(data.email);
+			$('#direccion').val(data.direccion);
+			$('#estatus').val(data.estatus);
+			$('.modal-title').text("Editar Ciudadano");
+			$('#idciudadano').val(idciudadano);
 			$('#action').val("Edit");
 		});
 	}
@@ -112,15 +110,10 @@ var tabla;
     function guardaryeditar(e){
 
       	e.preventDefault(); //No se activará la acción predeterminada del evento
-      	var formData = new FormData($("#usuario_form")[0]);
+      	var formData = new FormData($("#ciudadano_form")[0]);
 
-      	var password1= $("#password1").val();
-	    var password2= $("#password2").val();
-            
-            //si el password conincide entonces se envia el formulario
-	    if(password1 == password2){
             $.ajax({
-           	    url: "../ajax/usuario.php?op=guardaryeditar",
+           	    url: "../ajax/ciudadano.php?op=guardaryeditar",
 			    type: "POST",
 			    data: formData,
 			    contentType: false,
@@ -130,56 +123,47 @@ var tabla;
 
 			    	console.log(datos);
 
-			    	$('#usuario_form')[0].reset();
-					$('#usuarioModal').modal('hide');
+			    	$('#ciudadano_form')[0].reset();
+					$('#ciudadanoModal').modal('hide');
 
-					$('#resultados_ajax').html(datos);
-					$('#usuario_data').DataTable().ajax.reload();
+					$('#resultados_ajax2').html(datos);
+					$('#ciudadano_data').DataTable().ajax.reload();
 			
                     limpiar();
-
 			    }
             });
-
-	    } //cierre de la validacion
-
-
-	        else {
-
-                bootbox.alert("No coincide el password");
-	    }
     }     
     //EDITAR ESTADO DEL USUARIO
-    //importante:id_usuario, est se envia por post via ajax
-    function cambiarEstado(id_usuario,est){
+    //importante:idciudadano, est se envia por post via ajax
+    function cambiarEstado(idciudadano,estatus){
         bootbox.confirm("¿Está Seguro de cambiar de estado?", function(result){
 			if(result){
 	           	$.ajax({
-					url:"../ajax/usuario.php?op=activarydesactivar",
+					url:"../ajax/ciudadano.php?op=activarydesactivar",
 					method:"POST",
 					//toma el valor del id y del estado
-					data:{id_usuario:id_usuario, est:est},
+					data:{idciudadano:idciudadano, est:est},
 					
 					success: function(data){
-	                  	$('#usuario_data').DataTable().ajax.reload();
+	                  	$('#ciudadano_data').DataTable().ajax.reload();
 					}
 				});
 			}
 		});//bootbox
     }
     //ELIMINAR USUARIO
-	function eliminar(id_usuario){
-	    bootbox.confirm("¿Está Seguro de eliminar el usuario?", function(result){
+	function eliminar(idciudadano){
+	    bootbox.confirm("¿Está Seguro de eliminar el ciudadano?", function(result){
 			if(result) {
 				$.ajax({
-					url:"../ajax/usuario.php?op=eliminar_usuario",
+					url:"../ajax/ciudadano.php?op=eliminar_ciudadano",
 					method:"POST",
-					data:{id_usuario:id_usuario},
+					data:{idciudadano:idciudadano},
 
 					success:function(data){
 						//alert(data);
-						$("#resultados_ajax").html(data);
-						$("#usuario_data").DataTable().ajax.reload();
+						$("#resultados_ajax2").html(data);
+						$("#ciudadano_data").DataTable().ajax.reload();
 					}
 				});
 			}

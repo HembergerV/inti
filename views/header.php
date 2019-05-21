@@ -46,7 +46,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-warning elevation-4">
+    <aside class="main-sidebar sidebar-light-success elevation-4">
       <!-- Brand Logo -->
       <a href="home.php" class="brand-link bg-success">
         <img src="../public/dist/img/logointi.png" alt="Logo INTI" class="brand-image img-circle elevation-3"
@@ -81,10 +81,34 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link active">
-                <!-- <i class="nav-icon fa fa-dashboard"></i> -->
-                <i class="nav-icon fas fa-code-branch"></i>
+                <i class="nav-icon fa fa-clipboard"></i>
                 <p>
-                  Maestros
+                  Procesos
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pcita.php" class="nav-link">
+                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
+                    <i class="fa fa-calendar"></i>
+                    <p>Cita</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="ptramite.php" class="nav-link">
+                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
+                    <i class="fa fa-clipboard"></i>
+                    <p>Tramite</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fa fa-list-alt"></i>
+                <p>
+                  Reportes
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
@@ -98,6 +122,45 @@
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
+                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
+                    <i class="fa fa-clipboard"></i>
+                    <p>Tramite</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link active">
+                <!-- <i class="nav-icon fa fa-dashboard"></i> -->
+                <i class="nav-icon fas fa-code-branch"></i>
+                <p>
+                  Configuración
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="ciudadano.php" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Ciudadanos</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="usuarios.php" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Usuarios</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
+                    <i class="fa fa-calendar"></i>
+                    <p>Cita</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="mtramites.php" class="nav-link">
                     <!-- <i class="fa fa-circle-o nav-icon"></i> -->
                     <i class="fa fa-clipboard"></i>
                     <p>Tramite</p>
@@ -166,71 +229,9 @@
                     <p>Estatus</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="mtramites.php" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-clipboard"></i>
-                    <p>Tramite</p>
-                  </a>
-                </li>
               </ul>
             </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-clipboard"></i>
-                <p>
-                  Procesos
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-calendar"></i>
-                    <p>Cita</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-clipboard"></i>
-                    <p>Tramite</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-list-alt"></i>
-                <p>
-                  Reportes y Consultas
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-calendar"></i>
-                    <p>Cita</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <!-- <i class="fa fa-circle-o nav-icon"></i> -->
-                    <i class="fa fa-clipboard"></i>
-                    <p>Tramite</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="usuarios.php" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Usuarios</p>
-              </a>
-            </li>
+            
             <li class="nav-item">
               <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>

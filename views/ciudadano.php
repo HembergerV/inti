@@ -27,33 +27,33 @@
       </section>
       <!-- Main content -->
       <section class="content">
-        <div id="resultados_ajax"></div>
+        <div id="resultados_ajax2"></div>
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Usuario</button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Ciudadano</button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
                 <!-- /.box-header -->
                 <!-- centro -->
                 <div class="card-body table-responsive">
-                  <table id="usuario_data" class="table table-sm table-bordered table-striped">
+                  <table id="ciudadano_data" class="table table-sm table-bordered table-striped">
                     <thead>                              
                       <tr>                           
                         <th>Cédula</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Usuario</th>
-                        <th>Cargo</th>
+                        <th>Rif</th>
+                        <th>Primer Nombre</th>
+                        <th>Segundo Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <th>Dirección</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
-                        <th>Dirección</th>
-                        <!-- <th>Fecha Ingreso</th> -->
-                        <th>Estado</th>
+                        <th>Estatus</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
                       </tr>
@@ -72,73 +72,60 @@
     <!--Fin-Contenido-->
     
     <!--FORMULARIO VENTANA MODAL-->
-    <div id="usuarioModal" class="modal fade">
+    <div id="ciudadanoModal" class="modal fade">
       <div class="modal-dialog modal-dialog-scrollable">
-        <form method="post" id="usuario_form">
+        <form method="post" id="ciudadano_form">
           <div class="modal-content card-success card-outline">
             <div class="modal-header">
-              <h4 class="modal-title">Agregar Usuarios</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>           
+              <h4 class="modal-title">Agregar Ciudadano</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label>Nombres</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label>Apellidos</label>
-                  <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
                   <label>Cédula</label>
-                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cédula" required pattern="[0-9]{0,15}"/>
+                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="cedula" required />
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label>Cargo</label>
-                  <select class="form-control" id="cargo" name="cargo" required>
-                    <option value="">-- Selecciona cargo --</option>
-                    <option value="1" selected>Administrador</option>
-                    <option value="0">Empleado</option>
-                  </select>
+                  <label>Rif</label>
+                  <input type="text" name="rif" id="rif" class="form-control" placeholder="Rif" required/>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label>Usuario</label>
-                  <div class="input-group ">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-user"></i></span>
-                    </div>
-                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
-                  </div>
+                  <label>Primer Nombre</label>
+                  <input type="text" name="primernombre" id="primernombre" class="form-control" placeholder="Primer Nombre" required />
                 </div>
+                <div class="col-md-6 mb-3">
+                  <label>Segundo Nombre</label>
+                  <input type="text" name="segundonombre" id="segundonombre" class="form-control" placeholder="Segundo Nombre" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label>Primer Apellido</label>
+                  <input type="text" name="primerapellido" id="primerapellido" class="form-control" placeholder="Primer Nombre" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label>Segundo Apellido</label>
+                  <input type="text" name="segundoapellido" id="segundoapellido" class="form-control" placeholder="Segundo Nombre" />
+                </div>
+              </div>
+              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Estado</label>
-                  <select class="form-control" id="estado" name="estado" required>
+                  <select class="form-control" id="estatus" name="estatus" required>
                     <option value="">-- Selecciona estado --</option>
                     <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>
                   </select>    
                 </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label>Clave</label>
-                  <input type="password" name="password1" id="password1" class="form-control" placeholder="Clave" required/>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label>Repita Clave</label>
-                  <input type="password" name="password2" id="password2" class="form-control" placeholder="Repita Clave" required/>
-                </div>
-              </div>
-              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Teléfono</label>
                   <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono" required pattern="[0-9]{0,15}"/>
                 </div>
+              </div>
+              <div class="form-row">
                  <div class="col-md-6 mb-3">
                   <label>Correo</label>
                   <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required="required"/>
@@ -152,7 +139,7 @@
               </div>                     
             </div>
             <div class="modal-footer">
-              <input type="hidden" name="id_usuario" id="id_usuario"/>
+              <input type="hidden" name="idciudadano" id="idciudadano"/>
               <button type="submit" name="action" id="btnGuardar" class="btn btn-success pull-left" value="Add">Guardar <i class="fas fa-user-check"></i></button>         
               <button type="button" onclick="limpiar()" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fa fa-times" aria-hidden="true"></i></button>  
             </div>
@@ -163,7 +150,7 @@
 <?php
   require_once("footer.php");
 ?>
-<script type="text/javascript" src="js/usuarios.js"></script>
+<script type="text/javascript" src="js/ciudadano.js"></script>
 
 <?php
   } else {

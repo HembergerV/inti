@@ -14,7 +14,7 @@
         Anything you want
       </div>
       <!-- Default to the left -->
-      <strong>Copyright &copy; 2019 Institu Nacional de Tierras.</strong> All rights reserved.
+      <strong>Institu Nacional de Tierras.</strong>
     </footer>
   </div>
   <!-- ./wrapper -->

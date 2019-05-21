@@ -47,12 +47,12 @@
       }
 
       //listar los usuarios
-   	  public function get_usuarios(){
+   	  public function get_pais(){
 
  	    	$conectar=parent::conexion();
  	    	parent::set_names();
 
- 	    	$sql="select * from usuarios";
+ 	    	$sql="select * from pais";
 
  	    	$sql=$conectar->prepare($sql);
  	    	$sql->execute();
@@ -60,93 +60,60 @@
  	    	return $resultado=$sql->fetchAll();
    	  }
 
-      //metodo para registrar usuario
-   	  public function registrar_usuario($nombre,$apellido,$cedula,$telefono,$email,$direccion,$cargo,$usuario,$password1,$password2,$estado){
+   	  public function registrar_pais($nombre,$estatus){
 
         $conectar=parent::conexion();
         parent::set_names();
 
-        $sql="insert into usuarios 
-        values(null,?,?,?,?,?,?,?,?,?,?,now(),?);";
+        $sql="insert into pais 
+        values(null,?,?);";
 
         $sql=$conectar->prepare($sql);
 
         $sql->bindValue(1, $_POST["nombre"]);
-        $sql->bindValue(2, $_POST["apellido"]);
-        $sql->bindValue(3, $_POST["cedula"]);
-        $sql->bindValue(4, $_POST["telefono"]);
-        $sql->bindValue(5, $_POST["email"]);
-        $sql->bindValue(6, $_POST["direccion"]);
-        $sql->bindValue(7, $_POST["cargo"]);
-        $sql->bindValue(8, $_POST["usuario"]);
-        $sql->bindValue(9, $_POST["password1"]);
-        $sql->bindValue(10, $_POST["password2"]);
-        $sql->bindValue(11, $_POST["estado"]);
+        $sql->bindValue(2, $_POST["estatus"]);
         $sql->execute();
    	  }
 
-      //metodo para editar usuario
-   	  public function editar_usuario($id_usuario,$nombre,$apellido,$cedula,$telefono,$email,$direccion,$cargo,$usuario,$password1,$password2,$estado){
+   	  public function editar_pais($codpais,$nombre,$estatus){
 
         $conectar=parent::conexion();
         parent::set_names();
 
-        $sql="update usuarios set 
+        $sql="update pais set 
 
-        nombres=?,
-        apellidos=?,
-        cedula=?,
-        telefono=?,
-        correo=?,
-        direccion=?,
-        cargo=?,
-        usuario=?,
-        password=?,
-        password2=?,
-        estado = ?
+        nombre=?,
+        estatus = ?
 
         where 
-        id_usuario=?
-
-       ";
+        codpais=? ";
         //echo $sql;
         $sql=$conectar->prepare($sql);
 
         $sql->bindValue(1,$_POST["nombre"]);
-        $sql->bindValue(2,$_POST["apellido"]);
-        $sql->bindValue(3,$_POST["cedula"]);
-        $sql->bindValue(4,$_POST["telefono"]);
-        $sql->bindValue(5,$_POST["email"]);
-        $sql->bindValue(6,$_POST["direccion"]);
-        $sql->bindValue(7,$_POST["cargo"]);
-        $sql->bindValue(8,$_POST["usuario"]);
-        $sql->bindValue(9,$_POST["password1"]);
-        $sql->bindValue(10,$_POST["password2"]);
-        $sql->bindValue(11,$_POST["estado"]);
-        $sql->bindValue(12,$_POST["id_usuario"]);
+        $sql->bindValue(2,$_POST["estatus"]);
+        $sql->bindValue(3,$_POST["codpais"]);
         $sql->execute();
 
         //print_r($_POST);
    	  }
 
-      //mostrar los datos del usuario por el id
-	    public function get_usuario_por_id($id_usuario){
+	    public function get_pais_por_id($codpais){
           
         $conectar=parent::conexion();
         parent::set_names();
 
-        $sql="select * from usuarios where id_usuario=?";
+        $sql="select * from pais where codpais=?";
 
         $sql=$conectar->prepare($sql);
 
-        $sql->bindValue(1, $id_usuario);
+        $sql->bindValue(1, $codpais);
         $sql->execute();
 
         return $resultado=$sql->fetchAll();
  	    }
 
- 	    //editar el estado del usuario, activar y desactiva el estado
-	    public function editar_estado($id_usuario,$estado){
+	    public function editar_estatus($codpais,$estatus){
 
  	    	$conectar=parent::conexion();
  	    	parent::set_names();
@@ -161,46 +128,28 @@
  	    		$estado=0;
  	    	}
 
- 	    	$sql="update usuarios set 
+ 	    	$sql="update pais set 
           
-          estado=?
+          estatus=?
 
           where 
-          id_usuario=?
+          codpais=?
  	    	";
 
  	    	$sql=$conectar->prepare($sql);
 
- 	    	$sql->bindValue(1,$estado);
- 	    	$sql->bindValue(2,$id_usuario);
+ 	    	$sql->bindValue(1,$estatus);
+ 	    	$sql->bindValue(2,$codpais);
  	    	$sql->execute();
  	    }
 
-   	  //valida correo y cedula del usuario
-   	  public function get_cedula_correo_del_usuario($cedula,$email){
-          
-        $conectar=parent::conexion();
-        parent::set_names();
-
-        $sql="select * from usuarios where cedula=? or correo=?";
-
-        $sql=$conectar->prepare($sql);
-
-        $sql->bindValue(1, $cedula);
-        $sql->bindValue(2, $email);
-        $sql->execute();
-
-        return $resultado=$sql->fetchAll();
-   	  }
-
-      //método para eliminar un registro
-      public function eliminar_usuario($id_usuario){
+      public function eliminar_pais($codpais){
         $conectar=parent::conexion();
          
-        $sql="delete from usuarios where id_usuario=?";
+        $sql="delete from pais where codpais=?";
 
         $sql=$conectar->prepare($sql);
-        $sql->bindValue(1,$id_usuario);
+        $sql->bindValue(1,$codpais);
         $sql->execute();
 
         return $resultado=$sql->fetch();

@@ -5,33 +5,21 @@ var tabla;
   	function init(){
 	    listar();
 	    //cuando se da click al boton submit entonces se ejecuta la funcion guardaryeditar(e);
-		$("#usuario_form").on("submit",function(e){
+		$("#pais_form").on("submit",function(e){
 			guardaryeditar(e);	
 		})
-		//cambia el titulo de la ventana modal cuando se da click al boton
-		$("#add_button").click(function(){	
-			$(".modal-title").text("Agregar Usuarios");
-		});
+		
 	}
 	//funcion que limpia los campos del formulario
     function limpiar(){
-   		$("#cedula").val("");
    		$('#nombre').val("");
-		$('#apellido').val("");
-		$('#cargo').val("");
-		$('#usuario').val("");
-		$('#password1').val("");
-		$('#password2').val("");
-		$('#telefono').val("");
-		$('#email').val("");
-		$('#direccion').val("");
-		$('#estado').val("");
-		$('#id_usuario').val("");
+		$('#estatus').val("");
+		$('#codpais').val("");
    	}
     //function listar 
     function listar(){
 
-    	tabla=$('#usuario_data').dataTable({
+    	tabla=$('#pais_data').dataTable({
 
     	"aProcessing": true,//Activamos el procesamiento del datatables
 	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
@@ -46,7 +34,7 @@ var tabla;
 		"ajax":
 
 		   {
-					url: '../ajax/usuario.php?op=listar',
+					url: '../ajax/pais.php?op=listar',
 					type : "get",
 					dataType : "json",						
 					error: function(e){
@@ -88,37 +76,21 @@ var tabla;
     	}).DataTable();
     }  
     //Mostrar datos del usuario en la ventana modal del formulario 
-    function mostrar(id_usuario){
-     	$.post("../ajax/usuario.php?op=mostrar",{id_usuario : id_usuario}, function(data, status){ 
+    function mostrar(codpais){
+     	$.post("../ajax/pais.php?op=mostrar",{codpais : codpais}, function(data, estatus){ 
          	data = JSON.parse(data);
             $("#usuarioModal").modal("show");
-            $("#cedula").val(data.cedula);
             $('#nombre').val(data.nombre);
-			$('#apellido').val(data.apellido);
-			$('#cargo').val(data.cargo);
-			$('#usuario').val(data.usuario);
-			$('#password1').val(data.password1);
-			$('#password2').val(data.password2);
-			$('#telefono').val(data.telefono);
-			$('#email').val(data.correo);
-			$('#direccion').val(data.direccion);
-			$('#estado').val(data.estado);
+			$('#estatus').val(data.estatus);
 			$('.modal-title').text("Editar Usuario");
-			$('#id_usuario').val(id_usuario);
+			$('#codpais').val(codpais);
 			$('#action').val("Edit");
 		});
 	}
-    //la funcion guardaryeditar(e); se llama cuando se da click al boton submit  
     function guardaryeditar(e){
 
-      	e.preventDefault(); //No se activará la acción predeterminada del evento
-      	var formData = new FormData($("#usuario_form")[0]);
-
-      	var password1= $("#password1").val();
-	    var password2= $("#password2").val();
-            
-            //si el password conincide entonces se envia el formulario
-	    if(password1 == password2){
+      	e.preventDefault(); 
+      	var formData = new FormData($("#pais_form")[0]);
             $.ajax({
            	    url: "../ajax/usuario.php?op=guardaryeditar",
 			    type: "POST",
@@ -141,45 +113,40 @@ var tabla;
 			    }
             });
 
-	    } //cierre de la validacion
-
-
 	        else {
 
                 bootbox.alert("No coincide el password");
 	    }
     }     
-    //EDITAR ESTADO DEL USUARIO
-    //importante:id_usuario, est se envia por post via ajax
-    function cambiarEstado(id_usuario,est){
-        bootbox.confirm("¿Está Seguro de cambiar de estado?", function(result){
+    function cambiarEstado(codpais,est){
+        bootbox.confirm("¿Está Seguro de cambiar de estatus?", function(result){
 			if(result){
 	           	$.ajax({
-					url:"../ajax/usuario.php?op=activarydesactivar",
+					url:"../ajax/pais.php?op=activarydesactivar",
 					method:"POST",
 					//toma el valor del id y del estado
-					data:{id_usuario:id_usuario, est:est},
+					data:{codpais:codpais, est:est},
 					
 					success: function(data){
-	                  	$('#usuario_data').DataTable().ajax.reload();
+	                  	$('#pais_data').DataTable().ajax.reload();
 					}
 				});
 			}
 		});//bootbox
     }
     //ELIMINAR USUARIO
-	function eliminar(id_usuario){
-	    bootbox.confirm("¿Está Seguro de eliminar el usuario?", function(result){
+	function eliminar(codpais){
+	    bootbox.confirm("¿Está Seguro de eliminar el pais?", function(result){
 			if(result) {
 				$.ajax({
-					url:"../ajax/usuario.php?op=eliminar_usuario",
+					url:"../ajax/pais.php?op=eliminar_pais",
 					method:"POST",
-					data:{id_usuario:id_usuario},
+					data:{codpais:codpais},
 
 					success:function(data){
 						//alert(data);
 						$("#resultados_ajax").html(data);
-						$("#usuario_data").DataTable().ajax.reload();
+						$("#pais_data").DataTable().ajax.reload();
 					}
 				});
 			}

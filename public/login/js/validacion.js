@@ -1,6 +1,5 @@
 //Application programming interface
 
-
 window.addEventListener('load', login , false);
 
 function login () {
@@ -9,7 +8,6 @@ function login () {
 	enviar.addEventListener('click',evento);
 	error = document.getElementById('error');
 	check = document.getElementById('check');
-
 }
 
 function evento () {
@@ -23,8 +21,8 @@ function evento () {
 	}else{
 		usuario.setCustomValidity('');
 		usuario.style.border = 'none';
-
 	}
+	
 	if (usuario.value.length < 4 || usuario.value.length > 30) {
 		alert('[ALERTA!] El usuario es debe tener entre 4 y 30 caracteres');
 		usuario.style.border = ' 2px solid #ce1818';

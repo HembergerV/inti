@@ -3,23 +3,25 @@
   if(isset($_SESSION["correo"])){
 ?>
 
-<?php
-  require_once("header.php");
+
+<?php 
+	require_once("header.php");
 ?>
-    <!--___________________________CONTENIDO______________________________-->
+
+	<!--___________________________CONTENIDO______________________________-->
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+      <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Listado de Usuarios</h1>
+              <h1>Listado de Ciudadanos</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item">Inicio</li>
-                <li class="breadcrumb-item active">Usuarios</li>
+                <li class="breadcrumb-item active">Ciudadanos</li>
               </ol>
             </div>
           </div>
@@ -34,7 +36,7 @@
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Usuario</button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Ciudadano</button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
@@ -45,15 +47,13 @@
                     <thead>                              
                       <tr>                           
                         <th>Cédula</th>
+                        <th>Rif</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
-                        <th>Usuario</th>
-                        <th>Cargo</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
                         <th>Dirección</th>
                         <!-- <th>Fecha Ingreso</th> -->
-                        <th>Estado</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
                       </tr>
@@ -77,61 +77,36 @@
         <form method="post" id="usuario_form">
           <div class="modal-content card-success card-outline">
             <div class="modal-header">
-              <h4 class="modal-title">Agregar Usuarios</h4>
+              <h4 class="modal-title">Agregar Ciudadanos</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>           
             </div>
             <div class="modal-body">
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label>Nombres</label>
+                  <label>Nombres: </label>
                   <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label>Apellidos</label>
+                  <label>Apellidos: </label>
                   <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label>Cédula</label>
+              	<div class="col-md-2 mb-3">
+                    <label for="nacionalidad">Nacionalidad: </label>
+                    <select id="nacionalidad" class="form-control"  >
+                        <option selected> </option>
+                        <option>V</option>
+                        <option>E</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label>Cédula:</label>
                   <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cédula" required pattern="[0-9]{0,15}"/>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label>Cargo</label>
-                  <select class="form-control" id="cargo" name="cargo" required>
-                    <option value="">-- Selecciona cargo --</option>
-                    <option value="1" selected>Administrador</option>
-                    <option value="0">Empleado</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label>Usuario</label>
-                  <div class="input-group ">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-user"></i></span>
-                    </div>
-                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label>Estado</label>
-                  <select class="form-control" id="estado" name="estado" required>
-                    <option value="">-- Selecciona estado --</option>
-                    <option value="1" selected>Activo</option>
-                    <option value="0">Inactivo</option>
-                  </select>    
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label>Clave</label>
-                  <input type="password" name="password1" id="password1" class="form-control" placeholder="Clave" required/>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label>Repita Clave</label>
-                  <input type="password" name="password2" id="password2" class="form-control" placeholder="Repita Clave" required/>
+                  <label>Rif:</label>
+                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Rif" required pattern="[0-9]{0,15}"/>
                 </div>
               </div>
               <div class="form-row">
@@ -160,10 +135,13 @@
         </form>
       </div>
     </div>
-<?php
-  require_once("footer.php");
+    <!-- /.content-wrapper -->
+    <!--___________________________CONTENIDO______________________________-->
+
+
+<?php 
+	require_once("footer.php");
 ?>
-<script type="text/javascript" src="js/usuarios.js"></script>
 
 <?php
   } else {
