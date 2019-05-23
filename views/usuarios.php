@@ -5,7 +5,7 @@
 
 <?php
   require_once("header.php");
-?>
+?>  
     <!--___________________________CONTENIDO______________________________-->
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Lista Usuario</h1>
+              <h1>Listado de Usuarios</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,7 @@
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"> Agregar </button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#usuarioModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Usuario</button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
@@ -53,7 +53,7 @@
                         <th>Correo</th>
                         <th>Dirección</th>
                         <!-- <th>Fecha Ingreso</th> -->
-                        <th>Estatus</th>
+                        <th>Estado</th>
                         <th width="10%">Editar</th>
                         <th width="10%">Borrar</th>
                       </tr>
@@ -77,29 +77,29 @@
         <form method="post" id="usuario_form">
           <div class="modal-content card-success card-outline">
             <div class="modal-header">
-              <h4 class="modal-title">Agregar Usuarios</h4>
+              <h4 class="modal-title">Agregar Usuario</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>           
             </div>
             <div class="modal-body">
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Nombres</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                  <input type="text" maxlength="25" minlength=2 name="nombre" onkeypress="return cadenaText(event)" autocomplete="off" id="nombre" class="form-control" placeholder="Ingrese valores alfabéticos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Apellidos</label>
-                  <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                  <input type="text" autocomplete="off" maxlength="25" minlength=2 onkeypress="return cadenaText(event)" name="apellido" id="apellido" class="form-control" placeholder="Ingrese valores alfabéticos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Cédula</label>
-                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cédula" required pattern="[0-9]{0,15}"/>
+                  <input type="text" maxlength="10" minlength="8" autocomplete="off" name="cedula" id="cedula" class="form-control" placeholder="Inicia con V o E"/>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Cargo</label>
                   <select class="form-control" id="cargo" name="cargo" required>
-                    <option value="">-- Selecciona cargo --</option>
+                    <option value=""> Selecciona cargo </option>
                     <option value="1" selected>Administrador</option>
                     <option value="0">Empleado</option>
                   </select>
@@ -112,13 +112,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-user"></i></span>
                     </div>
-                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                    <input  type="text" maxlength="15" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required />
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label>Estatus</label>
+                  <label>Estado</label>
                   <select class="form-control" id="estado" name="estado" required>
-                    <option value="">-- Selecciona estado --</option>
+                    <option value=""> Selecciona estado </option>
                     <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>
                   </select>    
@@ -127,7 +127,7 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Clave</label>
-                  <input type="password" name="password1" id="password1" class="form-control" placeholder="Clave" required/>
+                  <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese clave" required/>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Repita Clave</label>
@@ -137,17 +137,17 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Teléfono</label>
-                  <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono" required pattern="[0-9]{0,15}"/>
+                  <input autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="12" type="tel" name="telefono" id="telefono" class="form-control" placeholder="Ingrese solo números" required />
                 </div>
                  <div class="col-md-6 mb-3">
                   <label>Correo</label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="Correo" required="required"/>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Correo electrónico" required="required"/>
                 </div>
               </div>       
               <div class="form-row">
                 <div class="col-md-12 mb-3">
                   <label>Dirección</label>
-                  <textarea cols="90" rows="2" id="direccion" name="direccion"  placeholder="Direccion ..." required pattern="^[a-zA-Z0-9_áéíóúñ°\s]{0,200}$"></textarea> 
+                  <textarea style="resize:none; padding:5px 13px" maxlength=100 minlength=5 cols="90" rows="2" id="direccion" name="direccion"  placeholder="Ingrese dirección" required pattern="^[a-zA-Z0-9_áéíóúñ°\s]{0,200}$"></textarea> 
                 </div>
               </div>                     
             </div>
@@ -164,6 +164,7 @@
   require_once("footer.php");
 ?>
 <script type="text/javascript" src="js/usuarios.js"></script>
+<script type="text/javascript" src="js/validaciones.js"></script>
 
 <?php
   } else {

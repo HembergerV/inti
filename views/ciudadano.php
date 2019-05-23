@@ -14,7 +14,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Registro Ciudadanos</h1>
+              <h1>Listado de Usuarios</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">Inicio</li>
+                <li class="breadcrumb-item active">Usuarios</li>
+              </ol>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -28,7 +34,7 @@
               <div class="card card-success card-outline p-2">
                 <div class="card-header with-border">
                   <h1 class="box-title">
-                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"> Agregar </button></h1>
+                  <button class="btn btn-success" id="add_button" onclick="limpiar()" data-toggle="modal" data-target="#ciudadanoModal"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Ciudadano</button></h1>
                   <div class="box-tools pull-right">
                   </div>
                 </div>
@@ -71,14 +77,14 @@
         <form method="post" id="ciudadano_form">
           <div class="modal-content card-success card-outline">
             <div class="modal-header">
-              <h4 class="modal-title">Buscar Ciudadano</h4>
+              <h4 class="modal-title">Agregar Ciudadano</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Cédula</label>
-                  <input type="text" name="cedula" id="cedula" class="form-control" placeholder="cedula" required />
+                  <input type="text" maxlength="10" minlength="8" autocomplete="off" name="cedula" id="cedula" class="form-control" placeholder="Inicia con V o E"/>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Rif</label>
@@ -88,11 +94,11 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label>Primer Nombre</label>
-                  <input type="text" name="primernombre" id="primernombre" class="form-control" placeholder="Primer Nombre" required />
+                  <input type="text" maxlength="25" minlength=2 name="PrimerNombre" onkeypress="return cadenaText(event)" autocomplete="off" id="nombre" class="form-control" placeholder="Ingrese valores alfabéticos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Segundo Nombre</label>
-                  <input type="text" name="segundonombre" id="segundonombre" class="form-control" placeholder="Segundo Nombre" />
+                  <input type="text" maxlength="25" minlength=2 name="PrimerNombre" onkeypress="return cadenaText(event)" autocomplete="off" id="nombre" class="form-control" placeholder="Ingrese valores alfabéticos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                 </div>
               </div>
               <div class="form-row">
@@ -109,14 +115,14 @@
                 <div class="col-md-6 mb-3">
                   <label>Estado</label>
                   <select class="form-control" id="estatus" name="estatus" required>
-                    <option value="">-- Selecciona estado --</option>
+                    <option value=""> Selecciona estado </option>
                     <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>
                   </select>    
                 </div>
                 <div class="col-md-6 mb-3">
                   <label>Teléfono</label>
-                  <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono" required pattern="[0-9]{0,15}"/>
+                  <input autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="12" type="tel" name="telefono" id="telefono" class="form-control" placeholder="Ingrese solo números" required />
                 </div>
               </div>
               <div class="form-row">
@@ -128,9 +134,9 @@
               <div class="form-row">
                 <div class="col-md-12 mb-3">
                   <label>Dirección</label>
-                  <textarea cols="90" rows="2" id="direccion" name="direccion"  placeholder="Direccion ..." required pattern="^[a-zA-Z0-9_áéíóúñ°\s]{0,200}$"></textarea> 
+                  <textarea style="resize:none; padding:5px 13px" maxlength=100 minlength=5 cols="90" rows="2" id="direccion" name="direccion"  placeholder="Ingrese dirección" required pattern="^[a-zA-Z0-9_áéíóúñ°\s]{0,200}$"></textarea>  
                 </div>
-              </div>                     
+              </div>                    
             </div>
             <div class="modal-footer">
               <input type="hidden" name="idciudadano" id="idciudadano"/>
@@ -145,6 +151,7 @@
   require_once("footer.php");
 ?>
 <script type="text/javascript" src="js/ciudadano.js"></script>
+<script type="text/javascript" src="js/validaciones.js"></script>
 
 <?php
   } else {
