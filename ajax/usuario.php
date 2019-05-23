@@ -5,36 +5,40 @@
   //llamar a el modelo Usuarios 
   require_once("../modelos/Usuarios.php");
 
-  $usuarios = new Usuarios();
+  $usuarios = new Usuario();
 
   //declaramos las variables de los valores que se envian por el formulario y que recibimos por ajax y decimos que si existe el parametro que estamos recibiendo
 
-  $id_usuario = isset($_POST["id_usuario"]);
+  $idusuario = isset($_POST["idusuario"]);
   $nombre=isset($_POST["nombre"]);
   $apellido=isset($_POST["apellido"]);
+  $nacionalidad=isset($_POST["nacionalidad"]);
   $cedula=isset($_POST["cedula"]);
+  $fechanacimiento=isset($_POST["fechanacimiento"]);
   $telefono=isset($_POST["telefono"]);
   $email=isset($_POST["email"]);
-  $direccion=isset($_POST["direccion"]); 
+  $direccion=isset($_POST["direccion"]);
+  $fechaingreso=isset($_POST["fechaingreso"]);
+  $coddpto=isset($_POST["coddpto"]);
   $cargo=isset($_POST["cargo"]);
   $usuario=isset($_POST["usuario"]);
-  $password1=isset($_POST["password1"]);
+  $password=isset($_POST["password"]);
   $password2=isset($_POST["password2"]);
   //este es el que se envia del formulario
-  $estado=isset($_POST["estado"]);
+  $estatus=isset($_POST["estatus"]);
 
   switch($_GET["op"]){
     case "guardaryeditar":
       /*verificamos si existe la cedula y correo en la base de datos, si ya existe un registro con la cedula o correo entonces no se registra el usuario*/
       $datos = $usuarios->get_cedula_correo_del_usuario($_POST["cedula"],$_POST["email"]);             
       //validacion de password
-      if($password1 == $password2){
+      if($password == $password2){
         //si el id no existe entonces lo registra importante: se debe poner el $_POST sino no funciona
-        if(empty($_POST["id_usuario"])){
-          /*si coincide password1 y password2 entonces verificamos si existe la cedula y correo en la base de datos, si ya existe un registro con la cedula o correo entonces no se registra el usuario*/
+        if(empty($_POST["idusuario"])){
+          /*si coincide password y password2 entonces verificamos si existe la cedula y correo en la base de datos, si ya existe un registro con la cedula o correo entonces no se registra el usuario*/
           if(is_array($datos)==true and count($datos)==0){
             //no existe el usuario por lo tanto hacemos el registros
-            $usuarios->registrar_usuario($nombre,$apellido,$cedula,$telefono,$email,$direccion,$cargo,$usuario,$password1,$password2,$estado);
+            $usuarios->registrar_usuario($nombre,$apellido,$nacionalidad,$cedula,$fechanacimiento,$telefono,$email,$direccion,$fechaingreso,$coddpto,$cargo,$usuario,$password,$password2,$estatus);
             $messages[]="El usuario se registró correctamente";
               /*si ya exista el correo y la cedula entonces aparece el mensaje*/
 
@@ -45,7 +49,7 @@
 	        else {
 
             /*si ya existe entonces editamos el usuario*/
-            $usuarios->editar_usuario($id_usuario,$nombre,$apellido,$cedula,$telefono,$email,$direccion,$cargo,$usuario,$password1,$password2,$estado);
+            $usuarios->editar_usuario($idusuario,$nombre,$apellido,$nacionalidad,$cedula,$fechanacimiento,$telefono,$email,$direccion,$fechaingreso,$coddpto,$cargo,$usuario,$password,$password2,$estatus);
             $messages[]="El usuario se editó correctamente";
 	      }                
       } else {
@@ -85,22 +89,25 @@
 
     case "mostrar":
       //selecciona el id del usuario
-      //el parametro id_usuario se envia por AJAX cuando se edita el usuario
-      $datos = $usuarios->get_usuario_por_id($_POST["id_usuario"]);
+      //el parametro idusuario se envia por AJAX cuando se edita el usuario
+      $datos = $usuarios->get_usuario_por_id($_POST["idusuario"]);
         //validacion del id del usuario  
       if(is_array($datos)==true and count($datos)>0){
-        foreach($datos as $row){  
+        foreach($datos as $row){
+          $output["nacionalidad"] = $row["nacionalidad"];
           $output["cedula"] = $row["cedula"];
-          $output["nombre"] = $row["nombres"];
-          $output["apellido"] = $row["apellidos"];
-          $output["cargo"] = $row["cargo"];
-          $output["usuario"] = $row["usuario"];
-          $output["password1"] = $row["password"];
-          $output["password2"] = $row["password2"];
+          $output["nombre"] = $row["nombre"];
+          $output["apellido"] = $row["apellido"];
           $output["telefono"] = $row["telefono"];
           $output["correo"] = $row["correo"];
           $output["direccion"] = $row["direccion"];
-          $output["estado"] = $row["estado"];
+          $output["fechaingreso"] = $row["fechaingreso"];
+          $output["coddpto"] = $row["coddpto"];
+          $output["cargo"] = $row["cargo"];
+          $output["usuario"] = $row["usuario"];
+          $output["password"] = $row["password"];
+          $output["password2"] = $row["password2"];
+          $output["estatus"] = $row["estatus"];
           }
 
           echo json_encode($output);
@@ -127,12 +134,12 @@
       break;
 
     case "activarydesactivar":
-      //los parametros id_usuario y est vienen por via ajax
-      $datos = $usuarios->get_usuario_por_id($_POST["id_usuario"]);          
+      //los parametros idusuario y est vienen por via ajax
+      $datos = $usuarios->get_usuario_por_id($_POST["idusuario"]);          
         //valida el id del usuario
       if(is_array($datos)==true and count($datos)>0){              
-        //edita el estado del usuario 
-        $usuarios->editar_estado($_POST["id_usuario"],$_POST["est"]);
+        //edita el estatus del usuario 
+        $usuarios->editar_estatus($_POST["idusuario"],$_POST["est"]);
       }
       break;
 
@@ -142,14 +149,14 @@
       $data = Array();
       foreach($datos as $row){
         $sub_array= array();
-        //ESTADO
+        //estatus
         $est = '';
-        $atrib = "btn btn-success btn-md estado";
-        if($row["estado"] == 0){
+        $atrib = "btn btn-success btn-md estatus";
+        if($row["estatus"] == 0){
           $est = 'Inactivo';
-          $atrib = "btn btn-warning btn-md estado";
+          $atrib = "btn btn-warning btn-md estatus";
         } else{
-          if($row["estado"] == 1){
+          if($row["estatus"] == 1){
             $est = 'Activo';
           } 
         }
@@ -172,11 +179,11 @@
         $sub_array[] = $row["direccion"];
         // $sub_array[] = date("d-m-Y",strtotime($row["fecha_ingreso"]));
    
-        $sub_array[] = '<button type="button" onClick="cambiarEstado('.$row["id_usuario"].','.$row["estado"].');" name="estado" id="'.$row["id_usuario"].'" class="btn-sm '.$atrib.'">'.$est.'</button>';
+        $sub_array[] = '<button type="button" onClick="cambiarEstatus('.$row["idusuario"].','.$row["estatus"].');" name="estatus" id="'.$row["idusuario"].'" class="btn-sm '.$atrib.'">'.$est.'</button>';
 
-        $sub_array[] = '<button type="button" onClick="mostrar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-warning btn-sm update">.  <i class="fas fa-user-edit"></i> .</button>';
+        $sub_array[] = '<button type="button" onClick="mostrar('.$row["idusuario"].');"  id="'.$row["idusuario"].'" class="btn btn-warning btn-sm update">.  <i class="fas fa-user-edit"></i> .</button>';
 
-        $sub_array[] = '<button type="button" onClick="eliminar('.$row["id_usuario"].');"  id="'.$row["id_usuario"].'" class="btn btn-danger btn-sm">. <i class="fas fa-user-times"></i> .</button>';
+        $sub_array[] = '<button type="button" onClick="eliminar('.$row["idusuario"].');"  id="'.$row["idusuario"].'" class="btn btn-danger btn-sm">. <i class="fas fa-user-times"></i> .</button>';
         
         $data[]=$sub_array;    
       }
@@ -192,10 +199,10 @@
 
     case "eliminar_usuario":
 
-      $datos = $usuarios->get_usuario_por_id($_POST["id_usuario"]);
+      $datos = $usuarios->get_usuario_por_id($_POST["idusuario"]);
         
       if(is_array($datos)==true and count($datos)>0){
-        $usuarios->eliminar_usuario($_POST["id_usuario"]);
+        $usuarios->eliminar_usuario($_POST["idusuario"]);
         $messages[]="El usuario se eliminó exitosamente";
       }   
       

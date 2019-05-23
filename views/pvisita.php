@@ -1,7 +1,7 @@
 
 <?php
   require_once("../config/conexion.php");
-  if(isset($_SESSION["correo"])){
+  if(isset($_SESSION["email"])){
 ?>
 
   <?php 

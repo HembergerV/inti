@@ -1,6 +1,6 @@
 <?php
   require_once("../config/conexion.php");
-  if(isset($_SESSION["correo"])){
+  if(isset($_SESSION["email"])){
 ?>
 
 <?php
@@ -42,16 +42,20 @@
                 <!-- centro -->
                 <div class="card-body table-responsive">
                   <table id="usuario_data" class="table table-sm table-bordered table-striped">
-                    <thead>                              
-                      <tr>                           
+                    <thead>
+                      <tr>
+                        <th>N</th>
                         <th>Cédula</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Usuario</th>
-                        <th>Cargo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha Nacimiento</th>
                         <th>Teléfono</th>
-                        <th>Correo</th>
+                        <th>Email</th>
                         <th>Dirección</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Dpto</th>
+                        <th>Cargo</th>
+                        <th>Usuario</th>
                         <!-- <th>Fecha Ingreso</th> -->
                         <th>Estatus</th>
                         <th width="10%">Editar</th>
@@ -82,13 +86,72 @@
             </div>
             <div class="modal-body">
               <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label>Nombres</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                <div class="form-group col-md-4">
+                  <label for="nombre">Nombre</label>
+                  <div class="input-group ">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" autofocus>
+                  </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label>Apellidos</label>
-                  <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                <div class="form-group col-md-4">
+                  <label for="apellido">Apellido</label>
+                  <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                </div>
+                <div class="form-group col-md-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="nacionalidad">&nbsp;</label>
+                      <select id="nacionalidad" class="form-control"  >
+                        <option selected >V</option>
+                        <option>E</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-9">
+                      <label for="cedula">Cédula</label>
+                      <input type="number" class="form-control" id="cedula" placeholder="Cédula">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="fechaNac">Fecha Nacimiento</label>
+                  <input type="date" class="form-control" id="fechaNac" placeholder="Fecha">
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Teléfono</label>
+                  <input type="text" name="telefono" id="telefono" class="form-control" placeholder="04xx - xxxxxxx" required/>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="nombre@ejemplo.com" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="fechaNac">Fecha Ingreso</label>
+                  <input type="date" class="form-control" id="fechaNac" placeholder="Fecha">
+                </div>
+                <div class="form-group col-md-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="">Departamento</label>
+                      <select id="" class="form-control"  >
+                        <option selected >...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="">Cargo</label>
+                      <select id="" class="form-control"  >
+                        <option selected >...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="form-row">
@@ -114,14 +177,6 @@
                     </div>
                     <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required pattern="^[a-zA-Z_áéíóúñ\s]{0,30}$"/>
                   </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label>Estatus</label>
-                  <select class="form-control" id="estado" name="estado" required>
-                    <option value="">-- Selecciona estado --</option>
-                    <option value="1" selected>Activo</option>
-                    <option value="0">Inactivo</option>
-                  </select>    
                 </div>
               </div>
               <div class="form-row">
@@ -152,7 +207,7 @@
               </div>                     
             </div>
             <div class="modal-footer">
-              <input type="hidden" name="id_usuario" id="id_usuario"/>
+              <input type="hidden" name="idusuario" id="idusuario"/>
               <button type="submit" name="action" id="btnGuardar" class="btn btn-success pull-left" value="Add">Guardar <i class="fas fa-user-check"></i></button>         
               <button type="button" onclick="limpiar()" class="btn btn-danger" data-dismiss="modal">Cerrar <i class="fa fa-times" aria-hidden="true"></i></button>  
             </div>

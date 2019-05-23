@@ -1,7 +1,7 @@
 
 <?php
   require_once("../config/conexion.php");
-  if(isset($_SESSION["correo"])){
+  if(isset($_SESSION["email"])){
 ?>
 
   <?php 
@@ -47,12 +47,12 @@
               <div class="inner">
                 <h3>2</h3>
 
-                <p>Registrar Cita</p>
+                <p>Registrar Visita</p>
               </div>
               <div class="icon">
                 <i class="nav-icon fa fa-clipboard"></i>
               </div>
-              <a href="#" class="small-box-footer">  Ir  <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="pvisita.php" class="small-box-footer">  Ir  <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           

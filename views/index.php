@@ -4,7 +4,7 @@
 	if(isset($_POST["enviar"]) and $_POST["enviar"]=="si"){
 
        require_once("../modelos/Usuarios.php");
-       $usuario = new Usuarios();
+       $usuario = new Usuario();
        $usuario->login();
     }
 ?>
@@ -107,18 +107,15 @@
 					<label>Correo: </label>
 					<div class="group">
 						<i class="fas fa-user"></i>
-        				<input type="email" name="correo" id="correo" class="form-control" placeholder="Email" >
+        				<input type="email" name="email" id="email" class="form-control" placeholder="" >
 					</div>
 				</div>
 				<div class="usuario">
 					<label>Contraseña: </label>
 					<div class="group">
 						<i class="fas fa-unlock"></i>
-						<input type="password" name="password" id="password" class="form-control" placeholder="Password">
+						<input type="password" name="password" id="password" class="form-control" placeholder="">
 					</div>
-				</div>
-				<div class="usuario">
-					<ul class="error" id="error"></ul>
 				</div>
 				<input type="hidden" name="enviar" class="form-control" value="si">
 

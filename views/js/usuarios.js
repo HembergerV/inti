@@ -18,15 +18,19 @@ var tabla;
    		$("#cedula").val("");
    		$('#nombre').val("");
 		$('#apellido').val("");
+		$('#nacionalidad').val("");
+		$('#fechanacimiento').val("");
+		$('#fechaingreso').val("");
+		$('#coddpto').val("");
 		$('#cargo').val("");
 		$('#usuario').val("");
-		$('#password1').val("");
+		$('#password').val("");
 		$('#password2').val("");
 		$('#telefono').val("");
 		$('#email').val("");
 		$('#direccion').val("");
 		$('#estado').val("");
-		$('#id_usuario').val("");
+		$('#idusuario').val("");
    	}
     //function listar 
     function listar(){
@@ -88,23 +92,27 @@ var tabla;
     	}).DataTable();
     }  
     //Mostrar datos del usuario en la ventana modal del formulario 
-    function mostrar(id_usuario){
-     	$.post("../ajax/usuario.php?op=mostrar",{id_usuario : id_usuario}, function(data, status){ 
+    function mostrar(idusuario){
+     	$.post("../ajax/usuario.php?op=mostrar",{idusuario : idusuario}, function(data, status){ 
          	data = JSON.parse(data);
             $("#usuarioModal").modal("show");
             $("#cedula").val(data.cedula);
             $('#nombre').val(data.nombre);
 			$('#apellido').val(data.apellido);
+			$('#nacionalidad').val(data.nacionalidad);
+			$('#fechanacimiento').val(data.fechanacimiento);
+			$('#fechaingreso').val(data.fechaingreso);
+			$('#coddpto').val(data.coddpto);
 			$('#cargo').val(data.cargo);
 			$('#usuario').val(data.usuario);
-			$('#password1').val(data.password1);
+			$('#password').val(data.password);
 			$('#password2').val(data.password2);
 			$('#telefono').val(data.telefono);
 			$('#email').val(data.correo);
 			$('#direccion').val(data.direccion);
 			$('#estado').val(data.estado);
 			$('.modal-title').text("Editar Usuario");
-			$('#id_usuario').val(id_usuario);
+			$('#idusuario').val(idusuario);
 			$('#action').val("Edit");
 		});
 	}
@@ -114,11 +122,11 @@ var tabla;
       	e.preventDefault(); //No se activará la acción predeterminada del evento
       	var formData = new FormData($("#usuario_form")[0]);
 
-      	var password1= $("#password1").val();
+      	var password= $("#password").val();
 	    var password2= $("#password2").val();
             
             //si el password conincide entonces se envia el formulario
-	    if(password1 == password2){
+	    if(password == password2){
             $.ajax({
            	    url: "../ajax/usuario.php?op=guardaryeditar",
 			    type: "POST",
@@ -150,15 +158,15 @@ var tabla;
 	    }
     }     
     //EDITAR ESTADO DEL USUARIO
-    //importante:id_usuario, est se envia por post via ajax
-    function cambiarEstado(id_usuario,est){
+    //importante:idusuario, est se envia por post via ajax
+    function cambiarEstado(idusuario,est){
         bootbox.confirm("¿Está Seguro de cambiar de estado?", function(result){
 			if(result){
 	           	$.ajax({
 					url:"../ajax/usuario.php?op=activarydesactivar",
 					method:"POST",
 					//toma el valor del id y del estado
-					data:{id_usuario:id_usuario, est:est},
+					data:{idusuario:idusuario, est:est},
 					
 					success: function(data){
 	                  	$('#usuario_data').DataTable().ajax.reload();
@@ -168,13 +176,13 @@ var tabla;
 		});//bootbox
     }
     //ELIMINAR USUARIO
-	function eliminar(id_usuario){
+	function eliminar(idusuario){
 	    bootbox.confirm("¿Está Seguro de eliminar el usuario?", function(result){
 			if(result) {
 				$.ajax({
 					url:"../ajax/usuario.php?op=eliminar_usuario",
 					method:"POST",
-					data:{id_usuario:id_usuario},
+					data:{idusuario:idusuario},
 
 					success:function(data){
 						//alert(data);
